@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+const apikey:string = 'allI7PH29OZfZAILH2hVRDED7HCJMZl1'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,7 @@ export class GifsService {
 
   private _tagsHistory: string [] =[];
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   get tagsHistory() {
     return [...this._tagsHistory];
@@ -30,6 +33,8 @@ export class GifsService {
     if(tag.length === 0) return;
     this.organizeHistory(tag)
 
-    console.log(this.tagsHistory)
+    this.http.get(apikey).subscribe( resp =>{
+      console.log(resp)
+    })
   }
 }
