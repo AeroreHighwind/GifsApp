@@ -19,7 +19,7 @@ export class SearchBoxComponent {
   tagInput! : ElementRef<HTMLInputElement>;
 
   constructor(private gifsService:GifsService){
-
+    
   }
 
   searchTag(){
